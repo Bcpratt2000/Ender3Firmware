@@ -62,7 +62,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "(thisiskeithb, Ender-3 Pro)" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "(Ben Pratt, Ender-3 Pro)" // Who made the changes.
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 /**
@@ -572,15 +572,15 @@
 #endif
 
 #if HAS_E_TEMP_SENSOR
-  #define TEMP_RESIDENCY_TIME         10  // (seconds) Time to wait for hotend to "settle" in M109
+  #define TEMP_RESIDENCY_TIME         2  // (seconds) Time to wait for hotend to "settle" in M109
   #define TEMP_WINDOW                  1  // (°C) Temperature proximity for the "temperature reached" timer
-  #define TEMP_HYSTERESIS              3  // (°C) Temperature proximity considered "close enough" to the target
+  #define TEMP_HYSTERESIS              5  // (°C) Temperature proximity considered "close enough" to the target
 #endif
 
 #if TEMP_SENSOR_BED
-  #define TEMP_BED_RESIDENCY_TIME     10  // (seconds) Time to wait for bed to "settle" in M190
+  #define TEMP_BED_RESIDENCY_TIME     2  // (seconds) Time to wait for bed to "settle" in M190
   #define TEMP_BED_WINDOW              1  // (°C) Temperature proximity for the "temperature reached" timer
-  #define TEMP_BED_HYSTERESIS          3  // (°C) Temperature proximity considered "close enough" to the target
+  #define TEMP_BED_HYSTERESIS          5  // (°C) Temperature proximity considered "close enough" to the target
 #endif
 
 #if TEMP_SENSOR_CHAMBER
@@ -638,8 +638,8 @@
  * (especially before PID tuning). Setting the target temperature too close to MAXTEMP guarantees
  * a MAXTEMP shutdown! Use these values to forbid temperatures being set too close to MAXTEMP.
  */
-#define HOTEND_OVERSHOOT 15   // (°C) Forbid temperatures over MAXTEMP - OVERSHOOT
-#define BED_OVERSHOOT    10   // (°C) Forbid temperatures over MAXTEMP - OVERSHOOT
+#define HOTEND_OVERSHOOT 20   // (°C) Forbid temperatures over MAXTEMP - OVERSHOOT
+#define BED_OVERSHOOT    20   // (°C) Forbid temperatures over MAXTEMP - OVERSHOOT
 #define COOLER_OVERSHOOT  2   // (°C) Forbid temperatures closer than OVERSHOOT
 
 //===========================================================================
@@ -1170,7 +1170,7 @@
  * Override with M92
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 93 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 90 }
 
 /**
  * Default Max Feed Rate (linear=mm/s, rotational=°/s)
@@ -2217,14 +2217,14 @@
 // Preheat Constants - Up to 10 are supported without changes
 //
 #define PREHEAT_1_LABEL       "PLA"
-#define PREHEAT_1_TEMP_HOTEND 185
-#define PREHEAT_1_TEMP_BED     45
+#define PREHEAT_1_TEMP_HOTEND  210
+#define PREHEAT_1_TEMP_BED     60
 #define PREHEAT_1_TEMP_CHAMBER 35
 #define PREHEAT_1_FAN_SPEED   255 // Value from 0 to 255
 
-#define PREHEAT_2_LABEL       "ABS"
+#define PREHEAT_2_LABEL       "PETG"
 #define PREHEAT_2_TEMP_HOTEND 240
-#define PREHEAT_2_TEMP_BED    110
+#define PREHEAT_2_TEMP_BED    90
 #define PREHEAT_2_TEMP_CHAMBER 35
 #define PREHEAT_2_FAN_SPEED   255 // Value from 0 to 255
 
